@@ -1,0 +1,28 @@
+<%- include("../includes/navbar.ejs") %>
+<%- include("../includes/flash.ejs") %>
+<div class="row mt-5 mb-5">
+  <div class="col-6 offset-3">
+    <form method="POST" action="/StyleZen/login" novalidate class="needs-validation">
+      <div class="col-8 offset-3 login ">
+        <h4>WELCOME StyleZen</h4>
+        <p>Login to your account
+    <br>Don't have account? <a href="/StyleZen/signup" >Register</a>
+        </p>
+       
+    </div>
+    <div>
+        <label for="username" class="form-label">Username</label>
+        <input placeholder="enter username" name="username"
+         type="text" class="form-control" id="username" required><br>
+       </div>
+       
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input placeholder="enter password" name="password"
+           type="password" class="form-control" id="password" required> 
+          </div>
+          <button class="btn btn-success">Submit</button>
+      </div>
+      </div>
+    </form>
+    <%- include("../includes/footer.ejs") %>

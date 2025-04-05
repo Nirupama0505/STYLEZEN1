@@ -1,0 +1,173 @@
+<%- include("../includes/navbar.ejs") %>
+<%- include("../includes/flash.ejs") %>
+
+<div class="container mt-4 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card listing-card p-3">
+        <div class="row g-3">
+          
+          <!-- Left Side: Image -->
+          <div class="col-md-5">
+            <img class="card-img-top img-fluid" src="<%= listing.image.url %>" alt="Product Image">
+          </div>
+          
+          <!-- Right Side: Product Details -->
+          <div class="col-md-7">
+            <div class="card-body">
+              <h2><b><%= listing.title %></b></h2>
+              
+              <!-- Brand with Heart in Corner -->
+              <div class="brand-container">
+                <p class="card-text"><strong>Brand:</strong> <%= listing.Brand %></p>
+                <a href="#" class="nav-link heart-icon">
+                  <i class="fas fa-heart"></i>
+                </a>
+              </div>
+              
+              <p class="card-text"><%= listing.description %></p>
+              <p class="card-text"><strong>Price:</strong> &#8377;<%= listing.price.toLocaleString("en-IN") %></p>
+              
+              <!-- Size Selection -->
+              <div class="size-selection-container">
+                <p class="card-text"><strong>Size:</strong></p>
+                <div class="size-selection">
+                  <% (Array.isArray(listing.size) ? listing.size : (listing.size || "").split(',')) 
+                     .forEach(function(size, index) { %>
+                    <div class="size-option">
+                      <input type="radio" name="selectedSize" id="size-<%= index %>" value="<%= size.trim() %>">
+                      <label for="size-<%= index %>" class="size-box"><%= size.trim() %></label>
+                    </div>
+                  <% }) %>
+                </div>
+                <div id="sizeError" class="text-danger mt-2" style="display: none;">Please select a size</div>
+              </div>
+
+              <p class="card-text"><strong>Offer:</strong> <%= listing.offer %></p>
+              <p class="card-text"><strong>Delivery:</strong> <%= listing.delivery %></p>
+              <p class="card-text"><strong>Color:</strong> <%= listing.color %></p>
+              <p class="card-text"><strong>Category:</strong> <%= listing.category %></p>
+
+              <!-- Action Buttons -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <form action="/StyleZen/wishlist/add" method="POST" class="d-flex align-items-center">
+                  <input type="hidden" name="id" value="<%= listing._id %>">
+                  <input type="hidden" name="modelType" value="<%= listing.category === 'Women' ? 'Women' : 'Men' %>">
+                  <input type="hidden" name="size" id="wishlistSizeInput">
+                  <button type="submit" class="btn btn-outline-danger me-2">
+                    <i class="fas fa-heart"></i> Add to Wishlist
+                  </button>
+                </form>
+
+                <form action="/StyleZen/cart/add" method="POST" class="d-flex align-items-center">
+                  <input type="hidden" name="id" value="<%= listing._id %>">
+                  <input type="hidden" name="modelType" value="<%= listing.category === 'Women' ? 'Women' : 'Men' %>">
+                  <input type="hidden" name="size" id="selectedSizeInput">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .size-selection-container {
+    margin-bottom: 1rem;
+  }
+  
+  .size-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .size-option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .size-box {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    text-align: center;
+  }
+  
+  .size-box:hover {
+    background-color: #f8f9fa;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + .size-box {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .brand-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .heart-icon {
+    color: #dc3545;
+    font-size: 1.2rem;
+  }
+  
+  .heart-icon:hover {
+    color: #c82333;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sizeError = document.getElementById('sizeError');
+    const cartForm = document.querySelector('form[action="/StyleZen/cart/add"]');
+    const wishlistForm = document.querySelector('form[action="/StyleZen/wishlist/add"]');
+    const selectedSizeInput = document.getElementById('selectedSizeInput');
+    const wishlistSizeInput = document.getElementById('wishlistSizeInput');
+    
+    // Handle size selection
+    document.querySelectorAll('input[name="selectedSize"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.checked) {
+          selectedSizeInput.value = this.value;
+          wishlistSizeInput.value = this.value;
+          sizeError.style.display = 'none';
+        }
+      });
+    });
+    
+    // Handle form submission
+    cartForm.addEventListener('submit', function(e) {
+      if (!selectedSizeInput.value) {
+        e.preventDefault();
+        sizeError.style.display = 'block';
+      }
+    });
+
+    wishlistForm.addEventListener('submit', function(e) {
+      if (!wishlistSizeInput.value) {
+        e.preventDefault();
+        sizeError.style.display = 'block';
+      }
+    });
+  });
+</script>
+
+<%- include("../includes/footer.ejs") %>

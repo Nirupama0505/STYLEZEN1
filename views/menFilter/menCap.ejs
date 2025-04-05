@@ -1,0 +1,200 @@
+<style>
+  .filter-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      overflow-y: auto;
+      z-index: 1050;
+  }
+  .filter-sidebar.active {
+      transform: translateX(0);
+  }
+  .listing-card img {
+      height: 35rem;
+      object-fit: cover;
+  }
+</style>
+<div>
+    <button id="openFilterBtn" class="btn btn-primary">Open Filters</button>
+    
+    <div class="filter-sidebar" id="filterSidebar">
+      <h4>Filter Options</h4>
+      <button id="closeFilterBtn" class="btn btn-danger mb-3">Close</button>
+  
+      <form method="GET" action="/StyleZen/men/cap/filter" id="filterForm">
+        
+        <!-- Type Filter -->
+        <div>
+          <input type="checkbox" id="typeFilter">
+          <label for="typeFilter">Type</label>
+        </div>
+        <div id="typeOptions" style="display: none; padding-left: 20px;">
+            <div>
+              <input type="checkbox" name="type" id="Baseball" value="Baseball"> 
+              <label for="Baseball">Baseball</label>
+            </div>
+            <div>
+              <input type="checkbox" name="type" id="Snapback" value="Snapback">
+              <label for="Snapback">Snapback</label>
+            </div>
+            <div>
+              <input type="checkbox" name="type" id="Bucket" value="Bucket"> 
+              <label for="Bucket">Bucket</label>
+            </div>
+            <div>
+              <input type="checkbox" name="type" id="Trucker" value="Trucker"> 
+              <label for="Trucker">Trucker</label>
+            </div>
+            <div>
+              <input type="checkbox" name="type" id="Beanie" value="Beanie"> 
+              <label for="Beanie">Beanie</label>
+            </div>
+        </div>
+  
+        <!-- Color Filter -->
+        <div>
+          <input type="checkbox" id="colorFilter">
+          <label for="colorFilter">Color</label>
+        </div>
+        <div id="colorOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="colors" id="Black" value="Black"> 
+            <label for="Black">Black</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colors" id="White" value="White">
+            <label for="White">White</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colors" id="Blue" value="Blue"> 
+            <label for="Blue">Blue</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colors" id="Red" value="Red"> 
+            <label for="Red">Red</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colors" id="Grey" value="Grey"> 
+            <label for="Grey">Grey</label>
+          </div>
+        </div>
+
+        <!-- Brand Filter -->
+        <div>
+          <input type="checkbox" id="brandFilter">
+          <label for="brandFilter">Brand</label>
+        </div>
+        <div id="brandOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="brand" id="Nike" value="Nike"> 
+            <label for="Nike">Nike</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="Adidas" value="Adidas">
+            <label for="Adidas">Adidas</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="Puma" value="Puma"> 
+            <label for="Puma">Puma</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="New Era" value="New Era"> 
+            <label for="New Era">New Era</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="Under Armour" value="Under Armour"> 
+            <label for="Under Armour">Under Armour</label>
+          </div>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div>
+          <input type="checkbox" id="priceFilter">
+          <label for="priceFilter">Price Range</label>
+        </div>
+        <div id="priceOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="priceRange" value="500-1000" id="500-1000">
+            <label for="500-1000">₹500 - ₹1000</label>
+          </div>
+          <div>
+            <input type="checkbox" name="priceRange" value="1000-1500" id="1000-1500">
+            <label for="1000-1500">₹1000 - ₹1500</label>
+          </div>
+          <div>
+            <input type="checkbox" name="priceRange" value="1500-2000" id="1500-2000">
+            <label for="1500-2000">₹1500 - ₹2000</label>
+          </div>
+          <div>
+            <input type="checkbox" name="priceRange" value="2000-2500" id="2000-2500">
+            <label for="2000-2500">₹2000 - ₹2500</label>
+          </div>
+        </div>
+
+        <!-- Delivery Time Filter -->
+        <div>
+          <input type="checkbox" id="deliveryFilter">
+          <label for="deliveryFilter">Delivery Time</label>
+        </div>
+        <div id="deliveryOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="deliveryTime" value="Tomorrow" id="tomorrow">
+            <label for="tomorrow">Tomorrow</label>
+          </div>
+          <div>
+            <input type="checkbox" name="deliveryTime" value="2-3 Days" id="2-3">
+            <label for="2-3">2-3 Days</label>
+          </div>
+          <div>
+            <input type="checkbox" name="deliveryTime" value="3-5 Days" id="3-5">
+            <label for="3-5">3-5 Days</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+      </form>
+  </div>
+  <script>
+    // Toggle Sidebar
+    document.getElementById('openFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.add('active');
+    });
+  
+    document.getElementById('closeFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.remove('active');
+    });
+  
+    // Show/Hide Type Options
+    document.getElementById("typeFilter").addEventListener("click", function () {
+        let typeOptions = document.getElementById("typeOptions");
+        typeOptions.style.display = typeOptions.style.display === "none" ? "block" : "none";
+    });
+  
+    // Show/Hide Color Options
+    document.getElementById('colorFilter').addEventListener('click', function() {
+      document.getElementById('colorOptions').style.display = this.checked ? 'block' : 'none';
+    });
+  
+    // Show/Hide Brand Options
+    document.getElementById('brandFilter').addEventListener('click', function() {
+      document.getElementById('brandOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Show/Hide Price Options
+    document.getElementById('priceFilter').addEventListener('click', function() {
+      document.getElementById('priceOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Show/Hide Delivery Options
+    document.getElementById('deliveryFilter').addEventListener('click', function() {
+      document.getElementById('deliveryOptions').style.display = this.checked ? 'block' : 'none';
+    });
+  </script>
+</div> 

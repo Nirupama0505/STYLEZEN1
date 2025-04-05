@@ -1,0 +1,104 @@
+<%- include("../includes/navbar.ejs") %>
+<%- include("../includes/flash.ejs") %>
+  <style>
+    /* Make sure the images cover the screen and fill their containers */
+    .img-cover {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+
+  <!-- Full Screen Flex Container with Two Images -->
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Image 1 -->
+    <div class="flex-fill">
+      <img src="https://i.pinimg.com/736x/fb/47/f4/fb47f4bfaf440179aea6b432a1930141.jpg" alt="Jeans" class="img-cover"/>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="flex-fill">
+      <img src="https://i.pinimg.com/736x/e4/31/3e/e4313efec2f804bfbb44011a0096d8db.jpg" alt="Jeans" class="img-cover"/>
+    </div>
+  </div>
+<br>
+<br>
+<h1><i>30-50% sale on all products</i></h1> <br>
+  <div class="card-group ">
+    <div class="card border-0">
+      <img src="https://i.pinimg.com/474x/46/ad/0c/46ad0cc8ae2e4a52ba4c991dcc0b6571.jpg" class="card-img-top" alt="..." style="height: 30rem;width:23rem">
+      <div class="card-body">
+        <h5 class="card-title"><b>SHIRTS</b></h5>
+        <p class="card-text"><a href="/StyleZen/shirt">SHOP NOW</a></p>
+      </div>
+    </div>
+    <div class="card border-0">
+      <img src="https://i.pinimg.com/736x/0f/13/56/0f1356716cd18c8d946303f568e040eb.jpg" class="card-img-top" alt="..." style="height: 30rem;width:23rem">
+      <div class="card-body">
+        <h5 class="card-title"><b>KURTI</b></h5>
+        <p class="card-text"><a href="/StyleZen/kurti">SHOP NOW</a></p>
+      </div>
+    </div>
+    <div class="card border-0">
+      <img src="https://i.pinimg.com/736x/37/6b/2c/376b2cdf3e188f657e80e81658c15ddb.jpg" class="card-img-top" alt="..." style="height: 30rem;width:23rem">
+      <div class="card-body">
+        <h5 class="card-title"><b>TEE</b></h5>
+        <p class="card-text"><a href="/StyleZen/tee">SHOP NOW</a></p>
+      </div>
+    </div>
+    <div class="card border-0">
+      <img src="https://i.pinimg.com/736x/b3/f9/ff/b3f9ff0526614966f197d6fc0806126b.jpg" class="card-img-top" alt="..." style="height: 30rem;width:23rem">
+      <div class="card-body">
+        <h5 class="card-title"><b>BAG</b></h5>
+        <p class="card-text"><a href="/StyleZen/bag">SHOP NOW</a></p>
+      </div>
+    </div>
+  </div>
+<br>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Shirt Card (Smaller width) -->
+    <div class="col-md-3">
+      <div class="card border-0">
+        <img src="https://i.pinimg.com/736x/e4/de/83/e4de836fdd25ade1150e423179c186ab.jpg" 
+             class="card-img-top equal-height-img" alt="gymwear">
+        <div class="card-body text-center">
+          <h5 class="card-title"><b>ActiveWear</b></h5>
+          <p class="card-text"><a href="/StyleZen/activewear">SHOP NOW</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kurti Card (Wider) -->
+    <div class="col-md-6">
+      <div class="card border-0">
+        <img src="https://i.pinimg.com/736x/59/d9/e4/59d9e47192af751deb6430cef3e1ed0d.jpg" 
+             class="card-img-top equal-height-img" alt="accessory">
+        <div class="card-body text-center">
+          <h5 class="card-title"><b>Accessory</b></h5>
+          <p class="card-text"><a href="/StyleZen/accessory">SHOP NOW</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bag Card (Smaller width) -->
+    <div class="col-md-3">
+      <div class="card border-0">
+        <img src="https://i.pinimg.com/736x/1f/50/7d/1f507d4dbb59a12a3de241a122bd1f8b.jpg" 
+             class="card-img-top equal-height-img" alt="shoes">
+        <div class="card-body text-center">
+          <h5 class="card-title"><b>FootWear</b></h5>
+          <p class="card-text"><a href="/StyleZen/footwear">SHOP NOW</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<%- include("../includes/footer.ejs") %>

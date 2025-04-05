@@ -1,0 +1,123 @@
+<%- include("../includes/navbar.ejs") %>
+<%- include("../includes/flash.ejs") %>
+
+<style>
+    .btn-wide {
+        min-width: 200px;
+        padding: 12px 24px;
+    }
+    .btn-wide-lg {
+        min-width: 250px;
+        padding: 15px 30px;
+    }
+    .form-select-wide {
+        min-width: 150px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Your Wishlist</h2>
+    
+    <% if (!isEmpty && items && items.length > 0) { %>
+        <div class="row">
+            <% items.forEach(item => { %>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <% if (item.image && item.image.url) { %>
+                                    <img src="<%= item.image.url %>" class="img-fluid rounded-start h-100" alt="<%= item.name %>" style="object-fit: cover;">
+                                <% } %>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= item.Brand %></h5>
+                                    <p class="card-text text-primary"><strong>₹<%= item.price.toLocaleString("en-IN") %></strong></p>
+                                    <p class="card-text"><small class="text-muted"><%= item.description %></small></p>
+                                    <p class="card-text"><strong>Color:</strong> <%= item.color %></p>
+                                    <p class="card-text"><strong>Category:</strong> <%= item.category %></p>
+                                    <% if (item.offer) { %>
+                                        <p class="card-text text-success"><strong>Offer:</strong> <%= item.offer %></p>
+                                    <% } %>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <form action="/StyleZen/wishlist/<%= item._id %>/remove" method="POST" class="me-2">
+                                            <button type="submit" class="btn btn-outline-danger btn-lg btn-wide">
+                                                <i class="fas fa-heart"></i> Remove
+                                            </button>
+                                        </form>
+                                        <form action="/StyleZen/cart/add" method="POST" class="d-flex align-items-center">
+                                            <input type="hidden" name="id" value="<%= item._id %>">
+                                            <input type="hidden" name="modelType" value="<%= item.category === 'Women' ? 'Women' : 'Men' %>">
+                                            <select name="size" class="form-select form-select-lg form-select-wide me-2" required>
+                                                <option value="">Select Size</option>
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                                <option value="XL">XL</option>
+                                                <option value="XXL">XXL</option>
+                                                <% if (item.size && Array.isArray(item.size)) { %>
+                                                    <% item.size.forEach(size => { %>
+                                                        <option value="<%= size %>"><%= size %></option>
+                                                    <% }); %>
+                                                <% } %>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-lg btn-wide">
+                                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <div class="text-center py-5">
+            <div class="mb-4">
+                <i class="fas fa-heart fa-4x text-muted"></i>
+            </div>
+            <h3 class="mb-3">Your wishlist is empty</h3>
+            <p class="text-muted mb-4">Start saving your favorite items to your wishlist!</p>
+            
+            <% if (trendingItems && trendingItems.length > 0) { %>
+                <h4 class="mb-4">Trending Now</h4>
+                <div class="row">
+                    <% trendingItems.forEach(item => { %>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <% if (item.image && item.image.url) { %>
+                                    <img src="<%= item.image.url %>" class="card-img-top" alt="<%= item.Brand %>">
+                                <% } %>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title"><%= item.Brand %></h5>
+                                    <p class="card-text text-primary">₹<%= item.price.toLocaleString("en-IN") %></p>
+                                    <p class="card-text"><small class="text-muted"><%= item.description %></small></p>
+                                    <form action="/StyleZen/wishlist/add" method="POST" class="mt-3">
+                                        <input type="hidden" name="id" value="<%= item._id %>">
+                                        <input type="hidden" name="modelType" value="<%= item.category === 'Women' ? 'Women' : 'Men' %>">
+                                        <button type="submit" class="btn btn-outline-primary btn-lg btn-wide">
+                                            <i class="fas fa-heart me-2"></i>Add to Wishlist
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+            
+            <div class="mt-4">
+                <a href="/StyleZen/men/viewall" class="btn btn-primary btn-lg btn-wide-lg">
+                    <i class="fas fa-tshirt me-2"></i>View All Men's Collection
+                </a>
+                <a href="/StyleZen/women/viewall" class="btn btn-primary btn-lg btn-wide-lg ms-3">
+                    <i class="fas fa-shopping-bag me-2"></i>View All Women's Collection
+                </a>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include("../includes/footer.ejs") %> 

@@ -1,0 +1,57 @@
+body {
+  padding-top: 70px; /* Adjust based on navbar height */
+}
+
+/* REMOVE LEFT & RIGHT SPACING */
+.navbar {
+  padding: 10;  /* Remove extra padding */
+  margin:0 ;   /* Remove margins */
+  width: 100%; /* Ensure full width */
+}
+
+.navbar-brand {
+  /* font-weight: bold; */
+  font-size: 16px;
+  padding-left: 15px;  /* Small padding for the logo */
+}
+
+/* Navbar Links */
+.nav-item a {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: black !important;  /* Ensures text remains black */
+}
+
+.nav-item a:hover {
+  color: #ff6b81 !important;  /* Adds a nice hover effect */
+}
+
+/* Search Bar */
+.search-bar input {
+  border-radius: 20px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+/* Cart & Wishlist Icons */
+.cart-icon, .heart-icon {
+  font-size: 20px;
+  color: black;
+}
+
+/* Ensures Navbar Stretches Fully */
+.container-fluid {
+  padding: 0; /* Removes extra space inside container */
+}
+
+.card-text a{
+  text-decoration: none;
+  color: black;
+}
+
+.equal-height-img {
+  height: 30rem;  /* Same height for all images */
+  object-fit: cover; /* Prevents stretching/distortion */
+  width: 100%; /* Ensures full width */
+}

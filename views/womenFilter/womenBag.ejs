@@ -1,0 +1,224 @@
+<div>
+    <button id="openFilterBtn" class="btn btn-primary">Open Filters</button>
+    
+    <div class="filter-sidebar" id="filterSidebar">
+      <h4>Filter Options</h4>
+      <button id="closeFilterBtn" class="btn btn-danger mb-3">Close</button>
+  
+      <form method="GET" action="/StyleZen/women/Bag/filter" id="filterForm">
+        
+        <!-- Color Filter -->
+        <div>
+          <input type="checkbox" id="colorFilter">
+          <label for="colorFilter">Color</label>
+        </div>
+        <div id="colorOptions" style="display: none; padding-left: 20px;">
+            <div>
+              <input type="checkbox" name="colors" id="Black" value="Black"> 
+              <label for="Black">Black</label>
+            </div>
+            <div>
+              <input type="checkbox" name="colors" id="Blue" value="Blue">
+              <label for="Blue">Blue</label>
+            </div>
+            <div>
+              <input type="checkbox" name="colors" id="Red" value="Red"> 
+              <label for="Red">Red</label>
+            </div>
+        </div>
+  
+        <!-- Bodytype Filter -->
+        <div>
+          <input type="checkbox" id="bodyTypeFilter">
+          <label for="bodyTypeFilter">Bodytype</label>
+        </div>
+        <div id="bodyTypeOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="bodyType" id="Rectangle" value="Rectangle"> 
+            <label for="Rectangle">Rectangle</label>
+          </div>
+          <div>
+            <input type="checkbox" name="bodyType" id="Inverted Triangle" value="Inverted Triangle">
+            <label for="Inverted Triangle">Inverted Triangle</label>
+          </div>
+          <div>
+            <input type="checkbox" name="bodyType" id="Apple" value="Apple"> 
+            <label for="Apple">Apple</label>
+          </div>
+          <div>
+            <input type="checkbox" name="bodyType" id="Pear-Shaped" value="Pear-Shaped"> 
+            <label for="Pear-Shaped">Pear-Shaped</label>
+          </div>
+          <div>
+            <input type="checkbox" name="bodyType" id="Hourglass" value="Hourglass"> 
+            <label for="Hourglass">Hourglass</label>
+          </div>
+          <div>
+            <input type="checkbox" name="bodyType" id="All Body Types" value="All Body Types"> 
+            <label for="All Body Types">All Body Types</label>
+          </div>
+        </div>
+  
+        <!-- Bodytype Filter -->
+        <div>
+          <input type="checkbox" id="brandFilter">
+          <label for="brandFilter">Brand</label>
+        </div>
+        <div id="brandOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="brand" id='Zara' value='Zara'> 
+            <label for='Zara'>Zara</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="Levi's" value="Levi's">
+            <label for="Levi's">Levi's</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id='H&M' value='H&M'> 
+            <label for='H&M'>H&M</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id='Wrangler' value='Wrangler'> 
+            <label for='Wrangler'>Wrangler</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id= 'PepeJeans' value='PepeJeans'> 
+            <label for='PepeJeans'>Pepe Jeans</label>
+          </div>
+          <div>
+            <input type="checkbox" name="brand" id="Nike" value="Nike"> 
+            <label for="Nike">Nike</label>
+          </div>
+        </div>
+
+        <!-- Offers Filter -->
+        <div>
+          <input type="checkbox" id="offerFilter">
+          <label for="offerFilter">Offers</label>
+        </div>
+        <div id="offerOptions" style="display: none; padding-left: 20px;">
+          <div>
+            <input type="checkbox" name="offer" id='10% Off' value='10% Off'> 
+            <label for='10% off'>10%</label>
+          </div>
+          <div>
+            <input type="checkbox" name="offer" id="15% Off" value="15% Off">
+            <label for="15% Off">15%</label>
+          </div>
+          <div>
+            <input type="checkbox" name="offer" id="20% Off" value="20% Off"> 
+            <label for="20% Off">20%</label>
+          </div>
+          <div>
+            <input type="checkbox" name="offer" id= '30% Off' value='30% Off'> 
+            <label for='30% Off'>30%</label>
+          </div>
+          <div>
+            <input type="checkbox" name="offer" id='Free Shipping' value='Free Shipping'> 
+            <label for='Free Shipping'>Freeshipping</label>
+          </div>
+        </div>
+  
+        <!-- Price Range Filter -->
+<div>
+  <input type="checkbox" id="priceFilter">
+  <label for="priceFilter">Price Range</label>
+</div>
+<div id="priceOptions" style="display: none; padding-left: 20px;">
+  <div>
+    <input type="checkbox" name="priceRange" value="500-1000" id="500-1000">
+    <label for="500-1000">₹500 - ₹1000</label>
+  </div>
+  <div>
+    <input type="checkbox" name="priceRange" value="1000-1500" id="1000-1500">
+    <label for="1000-1500">₹1000 - ₹1500</label>
+  </div>
+  <div>
+    <input type="checkbox" name="priceRange" value="1500-2000" id="1500-2000">
+    <label for="1500-2000">₹1500 - ₹2000</label>
+  </div>
+  <div>
+    <input type="checkbox" name="priceRange" value="2000-2500" id="2000-2500">
+    <label for="2000-2500">₹2000 - ₹2500</label>
+  </div>
+</div>
+
+<!-- Delivery Time Filter -->
+<div>
+  <input type="checkbox" id="deliveryFilter">
+  <label for="deliveryFilter">Delivery Time</label>
+</div>
+<div id="deliveryOptions" style="display: none; padding-left: 20px;">
+  <div>
+    <input type="checkbox" name="deliveryTime" value="Tomorrow" id="tomorrow">
+    <label for="tomorrow">Tomorrow</label>
+  </div>
+  <div>
+    <input type="checkbox" name="deliveryTime" value="2-3 Days" id="2-3">
+    <label for="2-3">2-3 Days</label>
+  </div>
+  <div>
+    <input type="checkbox" name="deliveryTime" value="3-5 Days" id="3-5">
+    <label for="3-5">3-5 Days</label>
+  </div>
+  <div>
+    <input type="checkbox" name="deliveryTime" value="2-5 Days" id="2-5">
+    <label for="2-5">2-5 Days</label>
+  </div>
+</div>
+
+
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+      </form>
+  </div>
+  <script>
+    // Toggle Sidebar
+    document.getElementById('openFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.add('active');
+    });
+  
+    document.getElementById('closeFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.remove('active');
+    });
+  
+    // Show/Hide Color Options
+    document.getElementById("colorFilter").addEventListener("click", function () {
+        let colorOptions = document.getElementById("colorOptions");
+        colorOptions.style.display = colorOptions.style.display === "none" ? "block" : "none";
+    });
+  
+    // Show/Hide Bodytype Options
+    document.getElementById('bodyTypeFilter').addEventListener('click', function() {
+      document.getElementById('bodyTypeOptions').style.display = this.checked ? 'block' : 'none';
+    });
+  
+    // Show/Hide Brand Options
+    document.getElementById('brandFilter').addEventListener('click', function() {
+      document.getElementById('brandOptions').style.display = this.checked ? 'block' : 'none';
+    });
+  
+    // Show/Hide offer Options
+    document.getElementById('offerFilter').addEventListener('click', function() {
+      document.getElementById('offerOptions').style.display = this.checked ? 'block' : 'none';
+    });
+  
+    // Show/Hide offer Options
+    document.getElementById('priceFilter').addEventListener('click', function() {
+      document.getElementById('priceOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Show/Hide delivery Options
+    document.getElementById('deliveryFilter').addEventListener('click', function() {
+      document.getElementById('deliveryOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Prevent Form Submission with No Selection
+    document.getElementById("filterForm").addEventListener("submit", function(e) {
+      const checkboxes = document.querySelectorAll("#colorOptions input[type='checkbox']:checked");
+      // if (checkboxes.length === 0) {
+      //   e.preventDefault();
+      //   alert("Please select at least one color.");
+      // }
+    });
+  </script>
+  

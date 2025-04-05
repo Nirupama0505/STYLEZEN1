@@ -1,0 +1,134 @@
+<%- include("../includes/navbar.ejs") %>
+
+  <style>
+    /* Ensure the left navigation takes up 100% height */
+    .left-nav {
+      height: 100vh; /* Makes the nav stretch full height */
+      border-right: 1px solid #ddd; /* Adds a border between nav and content */
+    }
+
+    /* Adjusting card image heights */
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Ensuring all cards have equal height */
+    .equal-height-img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Adjust the heading size and alignment */
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+  </style>
+<body>
+
+  <!-- Main Container with Bootstrap grid -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Column for Navigation -->
+      <div class="col-md-2 left-nav p-3">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/viewall">All</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/jeans">Jeans</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/t-shirt">T-Shirt</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/shirt">Shirt</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/dress">Dress</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/activewear">ActiveWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/skirt">Skirts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/kurti">Kurti</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/saree">Saree</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/footwear">FootWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/accessory">Accessory</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/bag">Bags</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/girl/watch">Watches</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Column for the Content -->
+      <div class="col-md-10">
+        <h2>Shop stylish, comfortable outfits for girls at 20% off</h2>
+
+        <!-- Container for cards -->
+        <div class="container mt-4">
+          <div class="row">
+
+            <!-- Shirt Card (Smaller width) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/99/52/03/9952032da287cba1756714d60f34a9bf.jpg" 
+                     class="card-img-top equal-height-img" alt="T-shirt">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>T-shirt</b></h5>
+                  <p class="card-text"><a href="/StyleZen/girl/T-Shirt">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Kurti Card (Wider) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/e6/df/54/e6df543cdd32e900397281efc9e77ef4.jpg" 
+                     class="card-img-top equal-height-img" alt="accessory">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>Accessory</b></h5>
+                  <p class="card-text"><a href="/StyleZen/girl/Accessory">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Bag Card (Smaller width) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/c5/7d/10/c57d108a312991de89045af30c0f1410.jpg" 
+                     class="card-img-top equal-height-img" alt="shoes">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>Footwear</b></h5>
+                  <p class="card-text"><a href="/StyleZen/girl/Footwear">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script>
+    // Toggle Sidebar
+    document.getElementById('openFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.add('active');
+    });
+  
+    document.getElementById('closeFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.remove('active');
+    });
+  
+    // Show/Hide Color Options
+    document.getElementById("colorFilter").addEventListener("click", function () {
+        let colorOptions = document.getElementById("colorOptions");
+        colorOptions.style.display = colorOptions.style.display === "none" ? "block" : "none";
+    });
+  
+    // Prevent Form Submission with No Selection
+    document.getElementById("filterForm").addEventListener("submit", function(e) {
+      const checkboxes = document.querySelectorAll("#colorOptions input[type='checkbox']:checked");
+      if (checkboxes.length === 0) {
+        e.preventDefault();
+        alert("Please select at least one color.");
+      }
+    });
+  </script>
+   
+</body>
+</html>
+<%- include("../includes/footer.ejs") %>

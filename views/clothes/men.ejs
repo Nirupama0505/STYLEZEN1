@@ -1,0 +1,142 @@
+<%- include("../includes/navbar.ejs") %>
+
+
+<style>
+  /* Adjusting card image heights */
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Ensuring all cards have equal height */
+  .equal-height-img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Adjust the heading size and alignment */
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2rem; /* Adjust font size */
+    font-weight: 600;
+  }
+
+  /* Ensure the left navigation takes up 100% height */
+  .left-nav {
+    height: 100vh; /* Makes the nav stretch full height */
+    border-right: 1px solid #ddd; /* Adds a border between nav and content */
+    padding: 0;
+  }
+
+  /* Card body adjustments */
+  .card-body {
+    padding: 1rem; /* Adjust padding inside cards */
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .card-text a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  .card-text a:hover {
+    text-decoration: underline;
+  }
+
+  /* Ensuring the card containers align properly */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Ensuring cards take the full height if needed */
+  .col-md-3, .col-md-6 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    flex-grow: 1;
+  }
+</style>
+
+<body>
+
+  <!-- Main Container with Bootstrap grid -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Left Column for Navigation -->
+      <div class="col-md-2 left-nav p-3">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/viewall">All</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/jean">Jeans</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/tee">Tee</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/shirt">Shirt</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/jacket">Jacket</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/activewear">ActiveWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/watch">Watch</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/kurti">Kurti</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/cap">Cap</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/footwear">FootWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/accessory">Accessory</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/men/bag">Bags</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Column for Content -->
+      <div class="col-md-10">
+        <div class="container mt-4">
+          <div class="row">
+            <!-- Shirt Card (Smaller width) -->
+            <!-- <div class="col-md-3 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/42/df/c9/42dfc9fec2853bf83b2cf64de057a242.jpg" 
+                     class="card-img-top equal-height-img" alt="gymwear">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>ActiveWear</b></h5>
+                  <p class="card-text"><a href="/StyleZen/activewear">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div> -->
+        
+            <!-- Kurti Card (Wider) -->
+            <div class="col-md-6 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/be/fd/68/befd68b1ec92b4e060d3df0dee6c9954.jpg" 
+                     class="card-img-top equal-height-img" alt="accessory">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>Jean</b></h5>
+                  <p class="card-text"><a href="/StyleZen/men/jean">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Bag Card (Smaller width) -->
+            <div class="col-md-6 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/c4/64/60/c46460f0d44c3e0e9f9aa02482fa888d.jpg" 
+                     class="card-img-top equal-height-img" alt="shoes">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>Shirt</b></h5>
+                  <p class="card-text"><a href="/StyleZen/men/shirt">SHOP NOW</a></p>
+                </div>
+              </div> 
+            </div> 
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+<%- include("../includes/footer.ejs") %>

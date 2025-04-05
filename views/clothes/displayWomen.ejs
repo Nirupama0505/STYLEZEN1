@@ -1,0 +1,108 @@
+<%- include("../includes/navbar.ejs") %>
+
+
+<% if (category === "All") { %>
+  <!-- No filter sidebar for All category -->
+<% } else if (category === "Jeans") { %>
+  <%- include("../womenFilter/womenJeans.ejs") %>
+<% } else if (category === "T-shirt") { %>
+  <%- include("../womenFilter/womenTee.ejs") %>
+<% } else if (category === "Saree") { %>
+  <%- include("../womenFilter/womenSaree.ejs") %>
+<% } else if (category === "Footwear") { %>
+  <%- include("../womenFilter/womenFootwear.ejs") %>
+<% } else if (category === "Shirt") { %>
+  <%- include("../womenFilter/womenShirt.ejs") %>
+<% } else if (category === "Accessory") { %>
+  <%- include("../womenFilter/womenAccessory.ejs") %>
+<% } else if (category === "Bag") { %>
+  <%- include("../womenFilter/womenBag.ejs") %>
+<% } else if (category === "Dress") { %>
+  <%- include("../womenFilter/womenDress.ejs") %>
+<% } else if (category === "Kurti") { %>
+  <%- include("../womenFilter/womenKurti.ejs") %>
+<% } else if (category === "Activewear") { %>
+  <%- include("../womenFilter/womenActivewear.ejs") %>
+<% } else if (category === "Skirt") { %>
+  <%- include("../womenFilter/womenSkirt.ejs") %>
+<% } %>
+
+<style>
+  .filter-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      overflow-y: auto;
+      z-index: 1050;
+  }
+  .filter-sidebar.active {
+      transform: translateX(0);
+  }
+  .listing-card img {
+      height: 30rem !important;
+      object-fit: cover;
+      width: 100%;
+  }
+  .filter-section {
+      margin-bottom: 20px;
+  }
+  .filter-section h5 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #333;
+  }
+  .form-check {
+      margin-bottom: 8px;
+  }
+  .form-check-input:checked {
+      background-color: #007bff;
+      border-color: #007bff;
+  }
+  .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+  }
+  .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+</style>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+        <!-- Product Grid -->
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                <% for(let listing of allListing) { %>
+                    <div class="col mb-4">
+                        <a href="/StyleZen/women/<%=listing._id%>" class="listing-link text-decoration-none">
+                            <div class="card h-100 listing-card">
+                                <img class="card-img-top" src="<%=listing.image.url %>" alt="listing image">
+                                
+                                <div class="card-body">
+                                  <b><h5 class="card-title"><%=listing.Brand %></h5></b>
+                                  <p class="card-text">
+                                    &#8377;<%=listing.price.toLocaleString("en-IN") %>
+                                  </p>
+                                  <% if(listing.offer) { %>
+                                    <p class="card-text"><span class="badge bg-success"><%=listing.offer %></span></p>
+                                  <% } %>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<%- include("../includes/footer.ejs") %>

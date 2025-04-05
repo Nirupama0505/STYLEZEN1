@@ -1,0 +1,133 @@
+<%- include("../includes/navbar.ejs") %>
+
+  <style>
+    /* Ensure the left navigation takes up 100% height */
+    .left-nav {
+      height: 100vh; /* Makes the nav stretch full height */
+      border-right: 1px solid #ddd; /* Adds a border between nav and content */
+    }
+
+    /* Adjusting card image heights */
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Ensuring all cards have equal height */
+    .equal-height-img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Adjust the heading size and alignment */
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+  </style>
+<body>
+
+  <!-- Main Container with Bootstrap grid -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Column for Navigation -->
+      <div class="col-md-2 left-nav p-3">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/viewall">All</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Jeans">Jeans</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/T-shirt">Tee</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Shirt">Shirt</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Dress">Dress</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Activewear">ActiveWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Skirt">Skirts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Kurti">Kurti</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Saree">Saree</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Footwear">FootWear</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Accessory">Accessory</a></li>
+          <li class="nav-item"><a class="nav-link" href="/StyleZen/women/Bag">Bags</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Column for the Content -->
+      <div class="col-md-10">
+        <h2>Shop stylish, comfortable activewear for empowered workouts</h2>
+
+        <!-- Container for cards -->
+        <div class="container mt-4">
+          <div class="row">
+
+            <!-- Shirt Card (Smaller width) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/42/df/c9/42dfc9fec2853bf83b2cf64de057a242.jpg" 
+                     class="card-img-top equal-height-img" alt="gymwear">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>ActiveWear</b></h5>
+                  <p class="card-text"><a href="/StyleZen/women/activewear">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Kurti Card (Wider) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/736x/20/75/50/207550c5b9ad0d2d1f540b2b022a165c.jpg" 
+                     class="card-img-top equal-height-img" alt="accessory">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>Jeans</b></h5>
+                  <p class="card-text"><a href="/StyleZen/women/jean">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Bag Card (Smaller width) -->
+            <div class="col-md-4 mb-4">
+              <div class="card border-0">
+                <img src="https://i.pinimg.com/474x/e2/03/65/e203654ad40a1c27a75fe573c51af0fc.jpg" 
+                     class="card-img-top equal-height-img" alt="shoes">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><b>shirt</b></h5>
+                  <p class="card-text"><a href="/StyleZen/women/shirt">SHOP NOW</a></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script>
+    // Toggle Sidebar
+    document.getElementById('openFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.add('active');
+    });
+  
+    document.getElementById('closeFilterBtn').addEventListener('click', () => {
+        document.getElementById('filterSidebar').classList.remove('active');
+    });
+  
+    // Show/Hide Color Options
+    document.getElementById("colorFilter").addEventListener("click", function () {
+        let colorOptions = document.getElementById("colorOptions");
+        colorOptions.style.display = colorOptions.style.display === "none" ? "block" : "none";
+    });
+  
+    // Prevent Form Submission with No Selection
+    document.getElementById("filterForm").addEventListener("submit", function(e) {
+      const checkboxes = document.querySelectorAll("#colorOptions input[type='checkbox']:checked");
+      if (checkboxes.length === 0) {
+        e.preventDefault();
+        alert("Please select at least one color.");
+      }
+    });
+  </script>
+   
+</body>
+</html>
+<%- include("../includes/footer.ejs") %>
