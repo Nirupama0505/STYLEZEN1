@@ -9,6 +9,8 @@ const flash = require("connect-flash");
 const passport = require("passport")
 const LocalStrategy = require('passport-local');
 
+const axios = require("axios");
+
 // Models
 const Girl = require("./models/girl");
 const Boy = require("./models/boy");
@@ -91,6 +93,29 @@ async function main() {
 
 // Handle favicon requests
 app.get('/favicon.ico', (req, res) => res.status(204).end());
+
+// Gemini AI Search Route
+// app.post("/ask", async (req, res) => {
+//   const { query } = req.body;
+
+//   try {
+//     const response = await axios.post("http://127.0.0.1:5000/search", {
+//       query: query,
+//     });
+
+//     const aiResponse = response.data.response;
+//     res.json({ response: aiResponse });
+//   } catch (error) {
+//     console.error("❌ Error contacting Gemini backend:", error.message);
+//     res.status(500).json({ error: "Failed to contact Gemini AI service." });
+//   }
+// });
+
+// app.get("/StyleZen/chatbot", (req, res) => {
+//   res.render("partials/chatbot");
+// });
+
+
 
 // Error handling for undefined routes
 app.all("*", (req, res, next) => {
