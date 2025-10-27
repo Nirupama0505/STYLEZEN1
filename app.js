@@ -79,8 +79,9 @@ app.use("/StyleZen/women", womenRouter);
 app.use("/StyleZen/men", menRouter);
 app.use("/StyleZen/cart", cartRouter);
 app.use("/StyleZen/wishlist", wishlistRouter);
-app.use("/StyleZen/user", userRouter);
+app.use("/StyleZen/", userRouter);
 app.use("/StyleZen/auth", authRouter);
+
 
 // Database connection
 main()
